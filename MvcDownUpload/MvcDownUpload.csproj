@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Arq_Upload\" />
     <Folder Include="Views\FileUpload\" />
   </ItemGroup>
   <ItemGroup>
