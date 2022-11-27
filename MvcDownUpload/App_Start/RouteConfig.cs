@@ -14,6 +14,12 @@ namespace MvcDownUpload
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Upload",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "FileUpload", action = "Upload", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

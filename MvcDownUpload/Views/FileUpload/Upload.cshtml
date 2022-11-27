@@ -7,10 +7,10 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/jquery.ui.widget.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.MultiFile.min.js"></script>
     <script src="~/Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.fileupload-ui.js"></script>
+    <script src="~/Scripts/jquery.MultiFile.min.js"></script>
     <script type="text/javascript">
      $(document).ready(function () {
          $('#file').MultiFile({
@@ -28,11 +28,11 @@
 <body>
     <div class="container">
         <h2>Upload</h2>
-        <h3>@Html.Encode(ViewData["Message"])</h3>
+        <h3 class="text-info">@ViewData["Message"])</h3>
         @Html.BeginForm("FileUpload", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data"})
 
         <fieldset>
-            <input id="file" type="submit"/>
+            <input id="file" type="file" multiple="multiple" class="multi"/>
             <input type="submit" value="Enviar" />
         </fieldset>
     </div>

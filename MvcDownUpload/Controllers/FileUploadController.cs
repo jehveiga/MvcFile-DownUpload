@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -41,11 +40,11 @@ namespace MvcDownUpload.Controllers
 
                     //para saber o nome do arquivo utilizaremos a propriedade GetFileName
                     //passando a string arq
-                    string nomeArq = System.IO.Path.GetFileName(tira_acentos(arq));
+                    string nomeArq = Path.GetFileName(tira_acentos(arq));
 
                     //diretorio onde será gravado o arquivo
                     //criar o diretório arquivos no mesmo local da aplicação
-                    string diretorio = this.Server.MapPath("Arq_Upload\\" + tira_acentos(nomeArq));
+                    string diretorio = this.Server.MapPath("..\\Arq_Upload\\" + tira_acentos(nomeArq));
 
                     // o tamanho acima do permitido - violação de regra
                     if (tamanho > permitido)
@@ -55,7 +54,7 @@ namespace MvcDownUpload.Controllers
                     }
 
                     // extensão diferente de jpg, doc, pdf e gif - violação de regra
-                    if ((extensao != ".jpg" && extensao != ".gif" && extensao != ".doc" && extensao != "pdf"))
+                    if ((extensao != ".jpg" && extensao != ".gif" && extensao != ".doc" && extensao != ".pdf"))
                     {
                         ViewData["Message"] = "Extensão inválida, só são permitidas .jpg, .doc, .pdf e .gif!";
                         erroRegra = "2";
@@ -67,7 +66,7 @@ namespace MvcDownUpload.Controllers
                         try
                         {
                             // verifica se já existe o nome do arquivo submetido
-                            if (!this.Server.MapPath($"Arq_Upload\\{arq}").Contains(diretorio))
+                            if (!this.Server.MapPath($"..\\Arq_Upload\\{arq}").Contains(diretorio))
                             {
                                 //Salva o arquivo
                                 if (arquivo.ContentLength > 0)
