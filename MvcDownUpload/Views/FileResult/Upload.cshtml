@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.ui.widget.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.MultiFile.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     $(document).ready(function () {
+         $('#file').MultiFile({
+             accept: 'gif|jpg',
+             max: 3,
+             STRING: {
+                 remove: 'Remover',
+                 denied: 'Tipo do arquivo inválido $ext!',
+                 duplicate: 'Esse arquivo já foi selecionado:\n$file!'
+             }
+         });
+     });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload</h2>
+        <h3>@Html.Encode(ViewData["Message"])</h3>
+        @Html.BeginForm("FileUpload", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data"})
+
+        <fieldset>
+            <input id="file" type="submit"/>
+            <input type="submit" value="Enviar" />
+        </fieldset>
+    </div>
+</body>
+</html>
+
